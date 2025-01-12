@@ -2,16 +2,18 @@
 
 LOCAL_PATH=`dirname $0`
 LOCAL_PATH=`cd $LOCAL_PATH && pwd`
+SDL_PATH=~/androidsdl
+BOCHS_PATH=~/bochs
 
 if [ \! -d bochs/bochs ] ; then
-   ln -s ../../../../bochs bochs
+   ln -s "$BOCHS_PATH" bochs
 fi
 
-if [ \! -d ../../../androidsdl/project/jni/application/bochs ] ; then
-   ln -s ../../../../bochs/build/android/bochs ../../../androidsdl/project/jni/application
+if [ \! -d "$SDL_PATH"/project/jni/application/bochs ] ; then
+   ln -s "$BOCHS_PATH"/build/android/bochs "$SDL_PATH"/project/jni/application
 fi
 
-cd ../../../androidsdl
+cd "$SDL_PATH"
 ./build.sh bochs
-mv project/app/build/outputs/apk/release/app-release.apk ../bochs/build/android/bochs-core-debug.apk
-cd ../bochs/build/android
+mv project/app/build/outputs/apk/release/app-release.apk "$BOCHS_PATH"/build/android/bochs.apk
+cd "$BOCHS_PATH"/build/android
