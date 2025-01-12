@@ -18,6 +18,7 @@ init_android_sdk() {
     wget -O "$ZIPDIR"/ANPTOOLS.zip https://dl.google.com/android/repository/platform-tools-latest-linux.zip
     unzip "$ZIPDIR"/ANPTOOLS.zip -d "$TOOLDIR"/asdk_tools/
     echo "Android platform tools unzipped"
-
+    "$TOOLDIR"/asdk_tools/bin/sdkmanager "platforms;android-25" --sdk_root="$TOOLDIR"/SDK/
+    "$TOOLDIR"/asdk_tools/bin/sdkmanager update
     
 }
