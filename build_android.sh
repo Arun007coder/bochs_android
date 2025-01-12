@@ -39,7 +39,7 @@ install_prerequisite() {
  }
 
 clone_required_repos() {
-    git clone git://github.com/pelya/commandergenius ../androidsdl
+    git clone git://github.com/pelya/commandergenius ~/androidsdl
 }
 
 install_prerequisite
