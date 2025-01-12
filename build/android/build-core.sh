@@ -15,5 +15,5 @@ fi
 
 cd "$SDL_PATH"
 ./build.sh bochs
-mv project/app/build/outputs/apk/release/app-release.apk "$BOCHS_PATH"/build/android/bochs.apk
+mv project/app/build/outputs/apk/release/app-release.apk "$BOCHS_PATH"/build/android/bochs-core-debug.apk
 cd "$BOCHS_PATH"/build/android
