@@ -4,7 +4,11 @@ SCROOT=~/bochs/
 ZIPDIR="$SCROOT"/ZIPS/
 TOOLDIR="$SCROOT"/TOOLS/
 
-ANDROID_HOME="$TOOLDIR"/SDK
+ANDROID_HOME="$TOOLDIR"/SDK/
+export ANDROID_NDK_HOME="$TOOLDIR"/andk/
+export PATH=$ANDROID_NDK_HOME:$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/build-tools/27.0.3:$PATH
+ 
 
 mkdir "$SCROOT" "$ZIPDIR" "$TOOLDIR"
 
@@ -18,9 +22,29 @@ init_android_ndk() {
 # download platform sdk tools
 init_android_sdk() {
     wget -O "$ZIPDIR"/ANPTOOLS.zip https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-    unzip "$ZIPDIR"/ANPTOOLS.zip -d "$TOOLDIR"/
+    unzip "$ZIPDIR"/ANPTOOLS.zip -d "$TOOLDIR"/SDK
     echo "Android platform tools unzipped"
-    "$TOOLDIR"/tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
-    "$TOOLDIR"/tools/bin/sdkmanager update
-    
+    "$TOOLDIR"/SDK/tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
+    "$TOOLDIR"/SDK/tools/bin/sdkmanager update
 }
+
+# install prerequisite packages
+install_prerequisite() {
+    sudo apt-get install openjdk-8-jdk
+    sudo apt-get install ant
+	sudo apt-get install make
+	sudo apt-get install g++
+	sudo apt-get install git-core
+ }
+
+clone_required_repos() {
+    git clone git://github.com/pelya/commandergenius androidsdl
+}
+
+install_prerequisite()
+init_android_ndk()
+init_android_sdk()
+clone_required_repos()
+
+cd build/android
+./build-all.sh
