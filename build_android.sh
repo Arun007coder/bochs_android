@@ -46,5 +46,7 @@ init_android_ndk()
 init_android_sdk()
 clone_required_repos()
 
+ls
 cd build/android
+ls
 ./build-all.sh
