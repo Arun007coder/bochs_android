@@ -15,6 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Create
+      run: sudo chmod +x ./build_android.sh
+      shell: bash
+      
     - name: Create toolchain
       run: ./build_android.sh
       shell: bash
