@@ -41,10 +41,10 @@ clone_required_repos() {
     git clone git://github.com/pelya/commandergenius androidsdl
 }
 
-install_prerequisite()
-init_android_ndk()
-init_android_sdk()
-clone_required_repos()
+install_prerequisite
+init_android_ndk
+init_android_sdk
+clone_required_repos
 
 ls
 cd build/android
