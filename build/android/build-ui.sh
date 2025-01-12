@@ -4,7 +4,7 @@ LOCAL_PATH=`dirname $0`
 LOCAL_PATH=`cd $LOCAL_PATH && pwd`
 
 SDL_PATH=~/androidsdl
-BOCHS_PATH=~/bochs
+BOCHS_PATH=~/bochs_android
 
 if [ \! -d BochsLauncher/bochsApp/src ] ; then
    ln -s "$SDL_PATH"/project/src BochsLauncher/bochsApp/src
