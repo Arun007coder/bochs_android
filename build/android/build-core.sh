@@ -3,7 +3,7 @@
 LOCAL_PATH=`dirname $0`
 LOCAL_PATH=`cd $LOCAL_PATH && pwd`
 SDL_PATH=~/androidsdl
-BOCHS_PATH=~/bochs_android
+BOCHS_PATH=~/work/bochs_android
 
 if [ \! -d bochs/bochs ] ; then
    ln -s "$BOCHS_PATH" bochs
