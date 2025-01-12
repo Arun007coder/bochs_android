@@ -14,18 +14,18 @@ mkdir "$SCROOT" "$ZIPDIR" "$TOOLDIR"
 
 # download android ndk
 init_android_ndk() {
-    wget -O "$ZIPDIR"/ANNDK.zip https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
-    unzip "$ZIPDIR"/ANNDK.zip -d "$TOOLDIR"/andk/
+    wget -q -O "$ZIPDIR"/ANNDK.zip https://dl.google.com/android/repository/android-ndk-r27c-linux.zip
+    unzip -q "$ZIPDIR"/ANNDK.zip -d "$TOOLDIR"/andk/
     echo "Android NDK unzipped"
 }
 
 # download platform sdk tools
 init_android_sdk() {
-    wget -O "$ZIPDIR"/ANTOOLS.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-    unzip "$ZIPDIR"/ANTOOLS.zip -d "$TOOLDIR"/SDK
+    wget -q -O "$ZIPDIR"/ANTOOLS.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+    unzip -q "$ZIPDIR"/ANTOOLS.zip -d "$TOOLDIR"/SDK
     echo "Android platform tools unzipped"
-    "$TOOLDIR"/SDK/tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
-    "$TOOLDIR"/SDK/tools/bin/sdkmanager update
+    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
+    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager update
 }
 
 # install prerequisite packages
