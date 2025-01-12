@@ -21,8 +21,8 @@ init_android_ndk() {
 
 # download platform sdk tools
 init_android_sdk() {
-    wget -O "$ZIPDIR"/ANPTOOLS.zip https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-    unzip "$ZIPDIR"/ANPTOOLS.zip -d "$TOOLDIR"/SDK
+    wget -O "$ZIPDIR"/ANTOOLS.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+    unzip "$ZIPDIR"/ANTOOLS.zip -d "$TOOLDIR"/SDK
     echo "Android platform tools unzipped"
     "$TOOLDIR"/SDK/tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
     "$TOOLDIR"/SDK/tools/bin/sdkmanager update
