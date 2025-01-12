@@ -26,7 +26,7 @@ init_android_sdk() {
     echo "Android platform tools unzipped"
     yes "y" | "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" --licenses
     "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
-    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --update
+    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --update --sdk_root="$ANDROID_HOME"
 }
 
 # install prerequisite packages
@@ -39,7 +39,7 @@ install_prerequisite() {
  }
 
 clone_required_repos() {
-    git clone git://github.com/pelya/commandergenius androidsdl
+    git clone git://github.com/pelya/commandergenius ../androidsdl
 }
 
 install_prerequisite
