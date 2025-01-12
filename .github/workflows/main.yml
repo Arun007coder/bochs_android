@@ -20,7 +20,7 @@ jobs:
       shell: bash
 
     - name: Upload kernel
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with: 
         name: bochs
         path: bochs.apk
