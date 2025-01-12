@@ -1,0 +1,26 @@
+name: Makefile CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main", "unfinished" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Create toolchain
+      run: ./build_android.sh
+      shell: bash
+
+    - name: Upload kernel
+      uses: actions/upload-artifact@v2
+      with: 
+        name: bochs
+        path: bochs.apk
