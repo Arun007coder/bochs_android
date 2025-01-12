@@ -49,5 +49,9 @@ clone_required_repos
 
 ls
 cd build/android
-ls
+
+pushd BochsLauncher
+./gradlew clean build
+popd
+
 ./build-all.sh
