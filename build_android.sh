@@ -39,6 +39,7 @@ install_prerequisite() {
  }
 
 clone_required_repos() {
+    git config --global url.https://github.com/.insteadOf git://github.com/
     git clone git://github.com/pelya/commandergenius ~/androidsdl
 }
 
