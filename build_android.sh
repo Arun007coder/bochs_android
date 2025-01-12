@@ -26,7 +26,7 @@ init_android_sdk() {
     echo "Android platform tools unzipped"
     "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
     yes | "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --licenses
-    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager update
+    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --update
 }
 
 # install prerequisite packages
