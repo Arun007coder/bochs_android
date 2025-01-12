@@ -24,7 +24,7 @@ init_android_sdk() {
     wget -q -O "$ZIPDIR"/ANTOOLS.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
     unzip -q "$ZIPDIR"/ANTOOLS.zip -d "$TOOLDIR"/SDK
     echo "Android platform tools unzipped"
-    "$TOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
+    "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
     yes | "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --licenses
     "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager update
 }
@@ -33,9 +33,9 @@ init_android_sdk() {
 install_prerequisite() {
     sudo apt-get install openjdk-8-jdk
     sudo apt-get install ant
-	sudo apt-get install make
-	sudo apt-get install g++
-	sudo apt-get install git-core
+    sudo apt-get install make
+    sudo apt-get install g++
+    sudo apt-get install git-core
  }
 
 clone_required_repos() {
