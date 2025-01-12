@@ -24,6 +24,7 @@ init_android_sdk() {
     wget -q -O "$ZIPDIR"/ANTOOLS.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
     unzip -q "$ZIPDIR"/ANTOOLS.zip -d "$TOOLDIR"/SDK
     echo "Android platform tools unzipped"
+    yes | "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --licenses
     "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-25" "build-tools;27.0.3" "platform-tools"
     "$TOOLDIR"/SDK/cmdline-tools/bin/sdkmanager update
 }
